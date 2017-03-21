@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{a6c08cc1-4b7d-4739-8b96-de49c6abf75b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{d4be7c39-bdc7-4407-817c-e95ba2a70437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Digest">
+      <UniqueIdentifier>{22814fb9-5cd3-4473-8502-5c42e308eaaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Digest">
+      <UniqueIdentifier>{aac0fd26-104c-4d87-a133-6173a59a7231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Digest\Support">
+      <UniqueIdentifier>{4eb08262-8b85-4a97-8cb1-c1fa02399678}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enumeration">
+      <UniqueIdentifier>{e927993c-1884-4da1-82f5-75372474891a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exception">
+      <UniqueIdentifier>{4cbdce61-daec-43fe-a464-df0c98b80d20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helper">
+      <UniqueIdentifier>{a1e7e938-15d8-4cb0-b438-970addd6dd37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helper">
+      <UniqueIdentifier>{a5b7ee91-11e8-4970-b176-cc4ec6ede144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IO">
+      <UniqueIdentifier>{68f517d2-be18-41f0-82fc-3981ca87a3a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{7c0069d7-9868-4ab4-b0cd-4c49288726c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prng">
+      <UniqueIdentifier>{4a7e2a04-d02d-4dc1-aa7e-8f7f77b2883d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prng">
+      <UniqueIdentifier>{d83c7324-9224-4e7b-87a9-90f5857220f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Provider">
+      <UniqueIdentifier>{ff46de6e-d7d7-4492-b375-3658e4552a95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Provider">
+      <UniqueIdentifier>{5812ed97-1096-4f68-a35c-7b31de500c49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{883c665b-a21e-4675-bc84-a5ae33dd48ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{8c6de495-69b5-4ce5-9c95-0ba5407d6010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Key">
+      <UniqueIdentifier>{37931e8a-2c74-4c5a-a671-5d0d918b9d7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Key\Symmetric">
+      <UniqueIdentifier>{b9531d57-3bbb-48d8-82de-f79f9643c987}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Key">
+      <UniqueIdentifier>{885d4085-97d2-45f7-99fd-e125b3d58ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Key\Symmetric">
+      <UniqueIdentifier>{654dff58-c319-4273-950e-e4b1e5c4d5d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mac">
+      <UniqueIdentifier>{7bd5cfe0-a651-42c4-8e8a-10939c6084da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mac">
+      <UniqueIdentifier>{7e87d8ac-d73d-4ae6-bf55-528974201e69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Digest\Support">
+      <UniqueIdentifier>{434dc140-040f-4020-8cfc-3ee5d1ca12ed}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Keccak\CexConfig.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\CexDomain.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\CpuDetect.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\Intrinsics.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\ParallelOptions.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\Keccak.h">
+      <Filter>Header Files\Digest\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\Keccak256.h">
+      <Filter>Header Files\Digest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\Keccak512.h">
+      <Filter>Header Files\Digest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\Digests.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\Providers.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\SimdProfiles.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\CryptoDigestException.h">
+      <Filter>Header Files\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\CryptoProcessingException.h">
+      <Filter>Header Files\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\CryptoRandomException.h">
+      <Filter>Header Files\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\DigestFromName.h">
+      <Filter>Header Files\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\BitConverter.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\SecureRandom.h">
+      <Filter>Header Files\Prng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\CSP.h">
+      <Filter>Header Files\Provider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\ArrayUtils.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\IntUtils.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\ParallelUtils.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\ISymmetricKey.h">
+      <Filter>Header Files\Key\Symmetric</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\SymmetricKey.h">
+      <Filter>Header Files\Key\Symmetric</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\SymmetricKeySize.h">
+      <Filter>Header Files\Key\Symmetric</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\IByteStream.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\MemoryStream.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\StreamReader.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\StreamWriter.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\StreamModes.h">
+      <Filter>Header Files\Enumeration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\CryptoMacException.h">
+      <Filter>Header Files\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\HMAC.h">
+      <Filter>Header Files\Mac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\IMac.h">
+      <Filter>Header Files\Mac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\IDigest.h">
+      <Filter>Header Files\Digest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Keccak\KeccakParams.h">
+      <Filter>Header Files\Digest\Support</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Keccak\CpuDetect.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\ParallelOptions.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\Keccak256.cpp">
+      <Filter>Source Files\Digest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\Keccak512.cpp">
+      <Filter>Source Files\Digest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\DigestFromName.cpp">
+      <Filter>Source Files\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\BitConverter.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\SecureRandom.cpp">
+      <Filter>Source Files\Prng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\CSP.cpp">
+      <Filter>Source Files\Provider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\ArrayUtils.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\IntUtils.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\ParallelUtils.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\SymmetricKey.cpp">
+      <Filter>Source Files\Key\Symmetric</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\MemoryStream.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\StreamReader.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\StreamWriter.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\HMAC.cpp">
+      <Filter>Source Files\Mac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Keccak\Keccak.cpp">
+      <Filter>Source Files\Digest\Support</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

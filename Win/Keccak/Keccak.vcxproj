@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E9344A75-BED0-4B42-8664-F088107668FE}</ProjectGuid>
+    <RootNamespace>SHA2</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>Keccak</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OpenMPSupport>true</OpenMPSupport>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Keccak\ArrayUtils.h" />
+    <ClInclude Include="..\..\Keccak\BitConverter.h" />
+    <ClInclude Include="..\..\Keccak\CexConfig.h" />
+    <ClInclude Include="..\..\Keccak\CexDomain.h" />
+    <ClInclude Include="..\..\Keccak\CpuDetect.h" />
+    <ClInclude Include="..\..\Keccak\CryptoDigestException.h" />
+    <ClInclude Include="..\..\Keccak\CryptoMacException.h" />
+    <ClInclude Include="..\..\Keccak\CryptoProcessingException.h" />
+    <ClInclude Include="..\..\Keccak\CryptoRandomException.h" />
+    <ClInclude Include="..\..\Keccak\CSP.h" />
+    <ClInclude Include="..\..\Keccak\DigestFromName.h" />
+    <ClInclude Include="..\..\Keccak\KeccakParams.h" />
+    <ClInclude Include="..\..\Keccak\Digests.h" />
+    <ClInclude Include="..\..\Keccak\HMAC.h" />
+    <ClInclude Include="..\..\Keccak\IByteStream.h" />
+    <ClInclude Include="..\..\Keccak\IDigest.h" />
+    <ClInclude Include="..\..\Keccak\IMac.h" />
+    <ClInclude Include="..\..\Keccak\Intrinsics.h" />
+    <ClInclude Include="..\..\Keccak\IntUtils.h" />
+    <ClInclude Include="..\..\Keccak\ISymmetricKey.h" />
+    <ClInclude Include="..\..\Keccak\Keccak.h" />
+    <ClInclude Include="..\..\Keccak\Keccak256.h" />
+    <ClInclude Include="..\..\Keccak\Keccak512.h" />
+    <ClInclude Include="..\..\Keccak\MemoryStream.h" />
+    <ClInclude Include="..\..\Keccak\ParallelOptions.h" />
+    <ClInclude Include="..\..\Keccak\ParallelUtils.h" />
+    <ClInclude Include="..\..\Keccak\Providers.h" />
+    <ClInclude Include="..\..\Keccak\SecureRandom.h" />
+    <ClInclude Include="..\..\Keccak\SimdProfiles.h" />
+    <ClInclude Include="..\..\Keccak\StreamModes.h" />
+    <ClInclude Include="..\..\Keccak\StreamReader.h" />
+    <ClInclude Include="..\..\Keccak\StreamWriter.h" />
+    <ClInclude Include="..\..\Keccak\SymmetricKey.h" />
+    <ClInclude Include="..\..\Keccak\SymmetricKeySize.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Keccak\ArrayUtils.cpp" />
+    <ClCompile Include="..\..\Keccak\BitConverter.cpp" />
+    <ClCompile Include="..\..\Keccak\CpuDetect.cpp" />
+    <ClCompile Include="..\..\Keccak\CSP.cpp" />
+    <ClCompile Include="..\..\Keccak\DigestFromName.cpp" />
+    <ClCompile Include="..\..\Keccak\HMAC.cpp" />
+    <ClCompile Include="..\..\Keccak\IntUtils.cpp" />
+    <ClCompile Include="..\..\Keccak\Keccak.cpp" />
+    <ClCompile Include="..\..\Keccak\Keccak256.cpp" />
+    <ClCompile Include="..\..\Keccak\Keccak512.cpp" />
+    <ClCompile Include="..\..\Keccak\MemoryStream.cpp" />
+    <ClCompile Include="..\..\Keccak\ParallelOptions.cpp" />
+    <ClCompile Include="..\..\Keccak\ParallelUtils.cpp" />
+    <ClCompile Include="..\..\Keccak\SecureRandom.cpp" />
+    <ClCompile Include="..\..\Keccak\StreamReader.cpp" />
+    <ClCompile Include="..\..\Keccak\StreamWriter.cpp" />
+    <ClCompile Include="..\..\Keccak\SymmetricKey.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
