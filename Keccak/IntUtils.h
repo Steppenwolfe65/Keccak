@@ -995,6 +995,17 @@ public:
 	static void XOR256(const std::vector<byte> &Input, const size_t InOffset, std::vector<byte> &Output, const size_t OutOffset, SimdProfiles SimdProfile);
 
 	/// <summary>
+	/// Block XOR 8 * 32bit unsigned integers
+	/// </summary>
+	/// 
+	/// <param name="Input">The source array</param>
+	/// <param name="InOffset">Offset within the source array</param>
+	/// <param name="Output">The destination array</param>
+	/// <param name="OutOffset">Offset within the destination array</param>
+	/// <param name="SimdProfile">System supported SIMD instructions</param>
+	static void XORUL256(const std::vector<uint> &Input, size_t InOffset, std::vector<uint> &Output, size_t OutOffset, SimdProfiles SimdProfile);
+
+	/// <summary>
 	/// Block XOR 4 * 64bit unsigned integers
 	/// </summary>
 	/// 

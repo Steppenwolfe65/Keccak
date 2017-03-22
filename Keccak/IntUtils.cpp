@@ -1,5 +1,7 @@
 #include "IntUtils.h"
-#include "Intrinsics.h"
+#if defined(CEX_HAS_MINSSE)
+#	include "Intrinsics.h"
+#endif
 
 NAMESPACE_UTILITY
 
@@ -978,6 +980,30 @@ void IntUtils::XOR256(const std::vector<byte> &Input, size_t InOffset, std::vect
 		Output[++OutOffset] ^= Input[++InOffset];
 		Output[++OutOffset] ^= Input[++InOffset];
 		Output[++OutOffset] ^= Input[++InOffset];
+		Output[++OutOffset] ^= Input[++InOffset];
+		Output[++OutOffset] ^= Input[++InOffset];
+		Output[++OutOffset] ^= Input[++InOffset];
+		Output[++OutOffset] ^= Input[++InOffset];
+		Output[++OutOffset] ^= Input[++InOffset];
+		Output[++OutOffset] ^= Input[++InOffset];
+		Output[++OutOffset] ^= Input[++InOffset];
+	}
+}
+
+void IntUtils::XORUL256(const std::vector<uint> &Input, size_t InOffset, std::vector<uint> &Output, size_t OutOffset, SimdProfiles SimdProfile)
+{
+	if (SimdProfile == SimdProfiles::Simd256)
+	{
+		_mm256_storeu_si256(reinterpret_cast<__m256i*>(&Output[OutOffset]), _mm256_xor_si256(_mm256_loadu_si256(reinterpret_cast<const __m256i*>(&Input[InOffset])), _mm256_loadu_si256(reinterpret_cast<const __m256i*>(&Output[OutOffset]))));
+	}
+	else if (SimdProfile == SimdProfiles::Simd128)
+	{
+		_mm_storeu_si128(reinterpret_cast<__m128i*>(&Output[OutOffset]), _mm_xor_si128(_mm_loadu_si128(reinterpret_cast<const __m128i*>(&Input[InOffset])), _mm_loadu_si128(reinterpret_cast<__m128i*>(&Output[OutOffset]))));
+		_mm_storeu_si128(reinterpret_cast<__m128i*>(&Output[OutOffset + 4]), _mm_xor_si128(_mm_loadu_si128(reinterpret_cast<const __m128i*>(&Input[InOffset + 4])), _mm_loadu_si128(reinterpret_cast<__m128i*>(&Output[OutOffset + 4]))));
+	}
+	else
+	{
+		Output[OutOffset] ^= Input[InOffset];
 		Output[++OutOffset] ^= Input[++InOffset];
 		Output[++OutOffset] ^= Input[++InOffset];
 		Output[++OutOffset] ^= Input[++InOffset];
