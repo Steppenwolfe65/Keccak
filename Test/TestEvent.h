@@ -1,10 +1,10 @@
-#ifndef _KECCAKTEST_TESTEVENT_H
-#define _KECCAKTEST_TESTEVENT_H
+#ifndef _CEXTEST_TESTEVENT_H
+#define _CEXTEST_TESTEVENT_H
 
 #include <vector>
 #include <iostream>
 
-namespace TestKeccak
+namespace Test
 {
 	template <typename ListenerType>
 	class TestEvent

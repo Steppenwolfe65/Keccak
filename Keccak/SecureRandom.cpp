@@ -1,19 +1,20 @@
 #include "SecureRandom.h"
 #include "ArrayUtils.h"
 #include "BitConverter.h"
+#include "IntUtils.h"
 #include "CSP.h"
-//#include "ProviderFromName.h"
 
 NAMESPACE_PRNG
 
 using IO::BitConverter;
+using Utility::IntUtils;
 
 //~~~Constructor~~~//
 
 SecureRandom::SecureRandom(Providers ProviderType, size_t BufferSize)
 	:
-	m_msgLength(0),
-	m_msgBufferSize(BufferSize),
+	m_bufferIndex(0),
+	m_bufferSize(BufferSize),
 	m_byteBuffer(BufferSize),
 	m_isDestroyed(false),
 	m_pvdType(ProviderType)
@@ -36,8 +37,8 @@ void SecureRandom::Destroy()
 	if (!m_isDestroyed)
 	{
 		m_isDestroyed = true;
-		m_msgLength = 0;
-		m_msgBufferSize = 0;
+		m_bufferIndex = 0;
+		m_bufferSize = 0;
 		m_pvdType = Providers::None;
 
 		try
@@ -66,12 +67,12 @@ void SecureRandom::GetBytes(std::vector<byte> &Output)
 	if (Output.size() == 0)
 		throw CryptoRandomException("SecureRandom:GetBytes", "Buffer size must be at least 1 byte!");
 
-	if (m_byteBuffer.size() - m_msgLength < Output.size())
+	if (m_byteBuffer.size() - m_bufferIndex < Output.size())
 	{
-		size_t bufSize = m_byteBuffer.size() - m_msgLength;
+		size_t bufSize = m_byteBuffer.size() - m_bufferIndex;
 		// copy remaining bytes
 		if (bufSize != 0)
-			memcpy(&Output[0], &m_byteBuffer[m_msgLength], bufSize);
+			memcpy(&Output[0], &m_byteBuffer[m_bufferIndex], bufSize);
 
 		size_t rem = Output.size() - bufSize;
 
@@ -89,15 +90,15 @@ void SecureRandom::GetBytes(std::vector<byte> &Output)
 			else
 			{
 				memcpy(&Output[bufSize], &m_byteBuffer[0], rem);
-				m_msgLength = rem;
+				m_bufferIndex = rem;
 				rem = 0;
 			}
 		}
 	}
 	else
 	{
-		memcpy(&Output[0], &m_byteBuffer[m_msgLength], Output.size());
-		m_msgLength += Output.size();
+		memcpy(&Output[0], &m_byteBuffer[m_bufferIndex], Output.size());
+		m_bufferIndex += Output.size();
 	}
 }
 
@@ -132,7 +133,7 @@ short SecureRandom::NextInt16(short Maximum)
 	do
 	{
 		rand = GetByteRange(Maximum);
-		memcpy(&num, &rand[0], rand.size());
+		num = IntUtils::BytesToLe<short>(rand, 0);
 	} 
 	while (num > Maximum);
 
@@ -159,7 +160,7 @@ ushort SecureRandom::NextUInt16(ushort Maximum)
 	do
 	{
 		rand = GetByteRange(Maximum);
-		memcpy(&num, &rand[0], rand.size());
+		num = IntUtils::BytesToLe<ushort>(rand, 0);
 	} 
 	while (num > Maximum);
 
@@ -191,7 +192,7 @@ int SecureRandom::NextInt32(int Maximum)
 	do
 	{
 		rand = GetByteRange(Maximum);
-		memcpy(&num, &rand[0], rand.size());
+		num = IntUtils::BytesToLe<int>(rand, 0);
 	} 
 	while (num > Maximum);
 
@@ -218,7 +219,7 @@ uint SecureRandom::NextUInt32(uint Maximum)
 	do
 	{
 		rand = GetByteRange(Maximum);
-		memcpy(&num, &rand[0], rand.size());
+		num = IntUtils::BytesToLe<uint>(rand, 0);
 	} 
 	while (num > Maximum);
 
@@ -250,7 +251,7 @@ long SecureRandom::NextInt64(long Maximum)
 	do
 	{
 		rand = GetByteRange(Maximum);
-		memcpy(&num, &rand[0], rand.size());
+		num = IntUtils::BytesToLe<long>(rand, 0);
 	} 
 	while (num > Maximum);
 
@@ -277,7 +278,7 @@ ulong SecureRandom::NextUInt64(ulong Maximum)
 	do
 	{
 		rand = GetByteRange(Maximum);
-		memcpy(&num, &rand[0], rand.size());
+		num = IntUtils::BytesToLe<ulong>(rand, 0);
 	} 
 	while (num > Maximum);
 
@@ -293,10 +294,9 @@ ulong SecureRandom::NextUInt64(ulong Minimum, ulong Maximum)
 
 void SecureRandom::Reset()
 {
-	//m_rngGenerator = Helper::ProviderFromName::GetInstance(m_pvdType);
 	m_rngGenerator = new Provider::CSP;
 	m_rngGenerator->GetBytes(m_byteBuffer);
-	m_msgLength = 0;
+	m_bufferIndex = 0;
 }
 
 //~~~Private Functions~~~//
@@ -327,8 +327,7 @@ std::vector<byte> SecureRandom::GetByteRange(ulong Maximum)
 
 std::vector<byte> SecureRandom::GetBits(std::vector<byte> &Data, ulong Maximum)
 {
-	ulong val = 0;
-	memcpy(&val, &Data[0], Data.size());
+	ulong val = IntUtils::BytesToLe<ulong>(Data, 0);
 	ulong bits = Data.size() * 8;
 
 	while (val > Maximum && bits != 0)
@@ -337,9 +336,7 @@ std::vector<byte> SecureRandom::GetBits(std::vector<byte> &Data, ulong Maximum)
 		bits--;
 	}
 
-	std::vector<byte> ret(Data.size());
-	memcpy(&ret[0], &val, Data.size());
-
+	std::vector<byte> ret = IntUtils::LeToBytes<ulong>(val, Data.size());
 	return ret;
 }
 

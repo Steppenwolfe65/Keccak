@@ -1,5 +1,5 @@
-#ifndef _KECCAKTEST_TESTCOMMON_H
-#define _KECCAKTEST_TESTCOMMON_H
+#ifndef _CEXTEST_TESTCOMMON_H
+#define _CEXTEST_TESTCOMMON_H
 
 #include "HexConverter.h"
 #include "TestUtils.h"

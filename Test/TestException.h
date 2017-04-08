@@ -1,11 +1,11 @@
 #ifndef _CEXENGINE_TESTEXCEPTION_H
 #define _CEXENGINE_TESTEXCEPTION_H
 
-#include <string.h>
-#include <iostream>
 #include <exception>
+#include <iostream>
+#include <string>
 
-namespace TestKeccak
+namespace Test
 {
 	/// <summary>
 	/// Generalized error container
@@ -33,6 +33,7 @@ namespace TestKeccak
 		/// <param name="Message">A custom message or error data</param>
 		explicit TestException(const std::string &Message)
 			:
+			m_origin(""),
 			m_message(Message)
 		{
 		}

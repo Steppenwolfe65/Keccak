@@ -1,11 +1,18 @@
+#include <algorithm>
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <string>
 #include <sstream> 
+#include "../Keccak/CpuDetect.h"
 #include "KeccakTest.h"
 #include "DigestSpeedTest.h"
 #include "ConsoleUtils.h"
 #include "HexConverter.h"
 #include "ITest.h"
 
-using namespace TestKeccak;
+using namespace Test;
 
 std::string GetResponse()
 {
@@ -96,7 +103,45 @@ int main()
 {
 	ConsoleUtils::SizeConsole();
 	PrintTitle();
-	RunTest(new DigestSpeedTest());
+
+#if !defined(_OPENMP)
+	PrintHeader("Warning! This library requires OpenMP support, the test can not coninue!");
+	PrintHeader("An error has occurred! Press any key to close..", "");
+	GetResponse();
+	return 0;
+#endif
+
+	CEX::Common::CpuDetect detect;
+
+	if (detect.AESNI())
+		PrintHeader("AES-NI intrinsics support has been detected on this system.");
+	else
+		PrintHeader("AES-NI intrinsics support has not been detected on this system.");
+	PrintHeader("", "");
+
+	if (detect.AVX2())
+	{
+#if !defined(__AVX2__)
+		PrintHeader("Warning! AVX2 support was detected! Set the enhanced instruction set to arch:AVX2 for best performance.");
+#else
+		PrintHeader("AVX2 intrinsics support has been enabled.");
+#endif
+	}
+	else if (detect.AVX())
+	{
+#if defined(__AVX2__)
+		PrintHeader("AVX2 is not supported on this system! AVX intrinsics support is available, set enable enhanced instruction set to arch:AVX");
+#elif !defined(__AVX__)
+		PrintHeader("AVX intrinsics support has been detected, set enhanced instruction set to arch:AVX for best performance.");
+#else
+		PrintHeader("AVX intrinsics support has been enabled.");
+#endif
+	}
+	else
+	{
+		PrintHeader("The minimum SIMD intrinsics support (AVX) was not detected, intrinsics have been disabled!");
+	}
+	PrintHeader("", "");
 
 	try
 	{

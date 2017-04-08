@@ -1,7 +1,0 @@
-﻿  DigestFromName.cpp
-  Keccak.cpp
-  Keccak256.cpp
-..\..\Keccak\Keccak256.cpp(181): warning C4267: '=': conversion from 'size_t' to 'uint', possible loss of data
-  Keccak512.cpp
-..\..\Keccak\Keccak512.cpp(182): warning C4267: '=': conversion from 'size_t' to 'uint', possible loss of data
-  Keccak.vcxproj -> C:\Users\John\Documents\Visual Studio 2015\Projects\Cryptography\Keccak\Win\x64\Release\Keccak.lib

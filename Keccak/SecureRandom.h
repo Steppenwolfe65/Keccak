@@ -50,11 +50,11 @@ using Exception::CryptoRandomException;
 class SecureRandom
 {
 private:
-	const size_t BUFFER_SIZE = 4096;
-	const size_t MAXD16 = 16368;
+	static const size_t BUFFER_SIZE = 4096;
+	static const size_t MAXD16 = 16368;
 
-	size_t m_msgLength;
-	size_t m_msgBufferSize;
+	size_t m_bufferIndex;
+	size_t m_bufferSize;
 	std::vector<byte> m_byteBuffer;
 	bool m_isDestroyed;
 	IProvider* m_rngGenerator;

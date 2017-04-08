@@ -168,9 +168,12 @@
     <ClInclude Include="..\..\Test\TestUtils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Test\ConsoleUtils.cpp" />
+    <ClCompile Include="..\..\Test\HexConverter.cpp" />
     <ClCompile Include="..\..\Test\KeccakTest.cpp" />
     <ClCompile Include="..\..\Test\DigestSpeedTest.cpp" />
     <ClCompile Include="..\..\Test\Test.cpp" />
+    <ClCompile Include="..\..\Test\TestUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Keccak\Keccak.vcxproj">

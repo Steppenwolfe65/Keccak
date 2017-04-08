@@ -1,20 +1,31 @@
 #include "DigestSpeedTest.h"
 #include "../Keccak/IDigest.h"
+#include "../Keccak/DigestFromName.h"
 #include "../Keccak/IntUtils.h"
 
-namespace TestKeccak
+namespace Test
 {
-	using CEX::Digest::IDigest;
-	using CEX::Utility::IntUtils;
+	const std::string DigestSpeedTest::DESCRIPTION = "Digest Speed Tests.";
+	const std::string DigestSpeedTest::FAILURE = "FAILURE! ";
+	const std::string DigestSpeedTest::MESSAGE = "COMPLETE! Speed tests have executed succesfully.";
 
-	void DigestSpeedTest::DigestBlockLoop(Digests DigestType, size_t SampleSize, size_t Loops, bool Parallel)
+	DigestSpeedTest::DigestSpeedTest()
+		:
+		m_progressEvent()
 	{
-		IDigest* dgt = CEX::Helper::DigestFromName::GetInstance(DigestType, Parallel);
-		size_t bufSze = dgt->BlockSize();
+	}
 
+	DigestSpeedTest::~DigestSpeedTest()
+	{
+	}
+
+	void DigestSpeedTest::DigestBlockLoop(Enumeration::Digests DigestType, size_t SampleSize, size_t Loops, bool Parallel)
+	{
+		Digest::IDigest* dgt = Helper::DigestFromName::GetInstance(DigestType, Parallel);
+		size_t bufSze = dgt->BlockSize();
 		if (Parallel)
 			bufSze = dgt->ParallelBlockSize();
-
+		
 		std::vector<byte> hash(dgt->DigestSize(), 0);
 		std::vector<byte> buffer(bufSze, 0);
 		uint64_t start = TestUtils::GetTimeMs64();
@@ -29,8 +40,8 @@ namespace TestKeccak
 				dgt->Update(buffer, 0, buffer.size());
 				counter += buffer.size();
 			}
-			std::string calc = IntUtils::ToString((TestUtils::GetTimeMs64() - lstart) / 1000.0);
-			OnProgress(const_cast<char*>(calc.c_str()));
+			std::string calc = Utility::IntUtils::ToString((TestUtils::GetTimeMs64() - lstart) / 1000.0);
+			OnProgress(calc);
 		}
 		dgt->Finalize(hash, 0);
 		delete dgt;
@@ -38,13 +49,13 @@ namespace TestKeccak
 		uint64_t dur = TestUtils::GetTimeMs64() - start;
 		uint64_t len = Loops * SampleSize;
 		uint64_t rate = GetBytesPerSecond(dur, len);
-		std::string glen = IntUtils::ToString(len / GB1);
-		std::string mbps = IntUtils::ToString((rate / MB1));
-		std::string secs = IntUtils::ToString((double)dur / 1000.0);
+		std::string glen = Utility::IntUtils::ToString(len / GB1);
+		std::string mbps = Utility::IntUtils::ToString((rate / MB1));
+		std::string secs = Utility::IntUtils::ToString((double)dur / 1000.0);
 		std::string resp = std::string(glen + "GB in " + secs + " seconds, avg. " + mbps + " MB per Second");
 
-		OnProgress(const_cast<char*>(resp.c_str()));
-		OnProgress("");
+		OnProgress(resp);
+		OnProgress(std::string(""));
 	}
 
 	uint64_t DigestSpeedTest::GetBytesPerSecond(uint64_t DurationTicks, uint64_t DataSize)
@@ -55,7 +66,7 @@ namespace TestKeccak
 		return (uint64_t)(sze / sec);
 	}
 
-	void DigestSpeedTest::OnProgress(char* Data)
+	void DigestSpeedTest::OnProgress(std::string Data)
 	{
 		m_progressEvent(Data);
 	}

@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Test">
       <UniqueIdentifier>{74aff4e0-9c6f-4a69-afcf-26b53409c5d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{57747f3f-b5cd-4981-9fd7-1b3d705d74e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Test\ConsoleUtils.h">
@@ -67,6 +70,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Test\KeccakTest.cpp">
       <Filter>Source Files\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Test\ConsoleUtils.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Test\HexConverter.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Test\TestUtils.cpp">
+      <Filter>Source Files\Common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
